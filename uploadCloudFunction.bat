@@ -1,0 +1,1 @@
+"C:\Loss\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e funrun-3gr1whsa95a40f5f --n lbs_server --r --project "C:\Loss\project\weixinProject\FunRun" --report_first --report

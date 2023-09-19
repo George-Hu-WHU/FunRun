@@ -2,3 +2,6 @@
 <view class="title">LBS定位</view>
 <view class="tips">LBS定位小插件将获取您的定位，提供地图展示、经纬度转换能力</view>
 <button class="mainbtn" bindtap="tomap">获取定位</button>
+<mp-dialog title="test" show="{{true}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <view>test content</view>
+</mp-dialog>

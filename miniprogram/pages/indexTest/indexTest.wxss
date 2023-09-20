@@ -1,0 +1,48 @@
+/* pages/indexTest/indexTest.wxss */
+.rotationContainer, .swiper{
+  height: 211rpx;
+}
+.swiper-item{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 20rpx;
+  flex-shrink: 1;
+  opacity: 1;
+  justify-content:space-evenly;
+}
+
+.current {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  opacity: 1
+}
+
+.wx-swiper-dots {
+  position: relative
+}
+
+/*水平指示器*/
+.wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: 0rpx
+}
+
+/*未选中点的样式*/
+.wx-swiper-dot {
+  width: 10rpx;
+  height: 10rpx;
+  background: #FFE4CF !important;
+  margin-left: -8rpx
+}
+
+/*激活样式*/
+.wx-swiper-dot-active {
+  width: 28rpx !important;
+  height: 10rpx;
+  background: linear-gradient(-30deg, #b1c44e 0%, #297245 100%) !important;
+  border-radius: 10rpx !important
+}

@@ -1,6 +1,6 @@
 /* pages/indexTest/indexTest.wxss */
 .rotationContainer, .swiper{
-  height: 211rpx;
+  height: 420rpx;
 }
 .swiper-item{
   display: -webkit-flex;

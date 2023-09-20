@@ -13,8 +13,8 @@ Page({
     interval: 3000, //轮播组件间隔时间
     duration: 1000, //轮播组件滑动时间
     activeIndex: 0,
-    previous_margin: "50rpx",
-    next_margin: "50rpx",
+    previous_margin: "20rpx",
+    next_margin: "20rpx",
     imageWidth: 0,
     imageHeight: 0
   },
@@ -26,12 +26,17 @@ Page({
 
   imageSize: function(e){
     var that = this
-    let $width = e.detail.$width
-    let $height = e.detail.$height
+    let $width = e.detail.width
+    let $height = e.detail.height
     let ratio = $width/$height
 
-    let viewHeight = 211
+    let viewHeight = 370
     let viewWidth = viewHeight*ratio
+
+    console.log($width)
+    console.log($height)
+    console.log(viewWidth)
+    console.log(viewHeight)
     that.setData({
       imageWidth: viewWidth,
       imageHeight: viewHeight

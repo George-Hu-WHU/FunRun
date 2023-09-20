@@ -3,7 +3,7 @@
   <block wx:for="{{imageUrls}}" wx:key="*this" wx:index="index">
       <swiper-item class="swiper-item-warp">
         <view class="swiper-item {{activeIndex == index? 'current' : ''}}">
-          <image class="swiper-item-image" bindload="imageSize" style="width:{{ imageUrls[index].imageWidth }}rpx" src="{{item}}"/>
+          <image class="swiper-item-image" bindload="imageSize" style="width:{{ imageWidth }}rpx; height: {{imageHeight}}rpx;" src="{{item}}"/>
         </view>
       </swiper-item>
   </block>

@@ -40,7 +40,7 @@ FunRun乐跑是一款基于微信小程序的跑步类应用，用户可以通�
 
 ## Authors adn acknowledgment
 
-- 项目作者：[ZhiYuan Hu] \ [QiYu Zhang]
+- 项目作者：[ZhiYuan Hu] \ [QiYu Zhang] \ [Peng Du] \ [Klein] \ [.]
 
 ## License
 

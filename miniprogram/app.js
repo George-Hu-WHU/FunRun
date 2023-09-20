@@ -5,26 +5,26 @@ App({
       {
         "pagePath": "../map/map",
         "text": "跑步",
-        "iconPath": "",
-        "selectedIconPath": ""
+        "iconPath": "../../../asset/run.svg",
+        "selectedIconPath": "../../../asset/run-selected.svg"
       },
       {
-        "pagePath": "../map/map",
+        "pagePath": "../index/index",
         "text": "首页",
-        "iconPath": "",
-        "selectedIconPath": ""
+        "iconPath": "../../../asset/index.svg",
+        "selectedIconPath": "../../../asset/index-selected.svg"
       },
       {
         "pagePath": "../map/map",
         "text": "数据",
-        "iconPath": "",
-        "selectedIconPath": ""
+        "iconPath": "../../../asset/data.svg",
+        "selectedIconPath": "../../../asset/data-selected.svg"
       },
       {
-        "pagePath": "../map/map",
+        "pagePath": "../mine/mine",
         "text": "我的",
-        "iconPath": "",
-        "selectedIconPath": ""
+        "iconPath": "../../../asset/mine.svg",
+        "selectedIconPath": "../../../asset/mine-selected.svg"
       }
     ] // tabBar数据
   },

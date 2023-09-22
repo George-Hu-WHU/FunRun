@@ -39,7 +39,7 @@ App({
   /**
    * 初始化云开发环境（支持环境共享和正常两种模式）
    */
-  async initcloud() {
+  async initcloud () {
     const shareinfo = wx.getExtConfigSync() // 检查 ext 配置文件
     const normalinfo = require('./envList.js').envList || [] // 读取 envlist 文件
     if (shareinfo.envid != null) { // 如果 ext 配置文件存在，环境共享模式
@@ -76,7 +76,7 @@ App({
    * 封装的云函数调用方法
    * @param {*} obj 传入对象
    */
-  async call(obj) {
+  async call (obj) {
     return new Promise(async (resolve, reject) => {
       try {
         const cloud = await this.cloud()

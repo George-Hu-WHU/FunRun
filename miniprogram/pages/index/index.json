@@ -1,6 +1,7 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
-    "mp-dialog": "weui-miniprogram/dialog/dialog",
-    "mp-tabbar": "weui-miniprogram/tabbar/tabbar"
+    "mp-waterfall": "../../components/mp-waterfall",
+    "waterfall-item": "../../components/waterfall-item"
   }
 }

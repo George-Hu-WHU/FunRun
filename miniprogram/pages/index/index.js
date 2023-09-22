@@ -1,10 +1,12 @@
 // pages/indexTest/indexTest.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tabBarList: app.globalData.tabBarList,
     imageUrls: [
     ],
     list:[],
@@ -26,7 +28,9 @@ Page({
     imageWidth: 0,
     imageHeight: 0
   },
-
+  tabChange(e){
+    app.tabChange(e);
+  },
   switchCard: function(e) {
     let current = e.detail.current;
     this.setData({ activeIndex: current });

@@ -132,7 +132,7 @@
   text-align: center;
   line-height: 2;
   font-size: 28rpx;
-  color: #666;
+  color: rgb(102, 102, 102);
   line-height: 1.5;
   padding: 20rpx 0;
 }

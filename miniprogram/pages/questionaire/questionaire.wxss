@@ -1,0 +1,25 @@
+input{
+  border: 1px black solid;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.button{
+  display: inline-block;
+  margin-left: 15%;
+}
+
+#container-top{
+  height: 70%;
+}
+#container-bottom{
+  height: 30%;
+}
+
+.img{
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 6%;
+}

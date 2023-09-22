@@ -25,9 +25,27 @@ App({
         "text": "我的",
         "iconPath": "../../../asset/mine.svg",
         "selectedIconPath": "../../../asset/mine-selected.svg"
-      }
-    ] // tabBar数据
+      },
+    ], // tabBar数据
+    openid:''
   },
+
+
+  //获取用户openid(后端用)
+  onLaunch:function(){
+
+    let that = this;
+    wx.cloud.callFunction({
+      name:'login',
+      sucess(rec){
+        console.log(res);
+        console.log(res.result.openid);
+        
+        that.globalData.openid = res.result.openid;
+      }
+    })
+  },
+
   tabChange(e){
     wx.redirectTo({
       url: e.detail.item.pagePath
@@ -36,6 +54,8 @@ App({
   async onLaunch(e) {
     this.initcloud()
   },
+
+
   /**
    * 初始化云开发环境（支持环境共享和正常两种模式）
    */
@@ -55,7 +75,8 @@ App({
         }
         return this.c1 // 返回 cloud 对象
       }
-    } else { // 如果 ext 配置文件存在，正常云开发模式
+    } 
+    else { // 如果 ext 配置文件存在，正常云开发模式
       if (normalinfo.length != 0 && normalinfo[0].envId != null) { // 如果文件中 envlist 存在
         wx.cloud.init({ // 初始化云开发环境
           traceUser: true,
@@ -72,6 +93,8 @@ App({
       }
     }
   },
+
+
   /**
    * 封装的云函数调用方法
    * @param {*} obj 传入对象
@@ -118,5 +141,8 @@ App({
         })
       }
     })
-  }
+  },
+
 })
+
+

@@ -12,6 +12,11 @@ Page({
     avatarUrl: "../../asset/defaultUser.svg",
     userName: "点击头像登录用户 >"
   },
+  login(e){
+    wx.navigateTo({
+      url: '../login/login',
+    })
+  },
   tabChange(e) {
     app.tabChange(e);
   },

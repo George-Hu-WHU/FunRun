@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/questionaire/questionaire",
     "pages/plan/plan",
-    "pages/runningmap/runningmap"
+    "pages/runningmap/runningmap",
+    "pages/login/login"
   ],
   "permission": {
     "scope.userLocation": {

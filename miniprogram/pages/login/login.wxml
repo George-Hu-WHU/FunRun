@@ -1,0 +1,5 @@
+<!--pages/login/login.wxml-->
+<button class="avatar-wrapper" style="padding: 0%;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" mode="widthFix" src="{{avatarUrl}}"></image>
+</button> 
+<input type="nickname" class="weui-input" placeholder="请输入昵称"/>

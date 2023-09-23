@@ -16,7 +16,7 @@
 
 <div id="content">
   <div id="panel">
-    <navigator class="sport-tab" style="cursor: pointer;" url="" open-type="navigate" bindtap="go2plan">
+    <navigator class="sport-tab" style="cursor: pointer;" url="/pages/plan/plan" open-type="navigate">
         <image id="sport-icon" src="../../asset/sport_plan.svg" tabindex="0"/>
       <div id="sport-text">
         <text>运动计划</text>
@@ -28,13 +28,13 @@
         <text>运动数据</text>
       </div>
     </navigator>
-    <navigator class="sport-tab" style="cursor: pointer;" url="" open-type="navigate" bindtap="go2questionaire">
+    <navigator class="sport-tab" style="cursor: pointer;" url="/pages/questionaire/questionaire" open-type="navigate">
       <image id="sport-icon" src="../../asset/sport_tips.svg" tabindex="2"/>
       <div id="sport-text">
         <text>个性问卷</text>
       </div>
     </navigator>
-    <navigator class="sport-tab" style="cursor: pointer;" url="../mine/mine" open-type="navigate">
+    <navigator class="sport-tab" style="cursor: pointer;" url="/pages/mine/mine" open-type="navigate">
       <image id="sport-icon" src="../../asset/sport-more.svg" tabindex="3"/>
       <div id="sport-text">
         <text>更多信息</text>

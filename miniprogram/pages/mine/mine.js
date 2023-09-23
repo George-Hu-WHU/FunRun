@@ -1,5 +1,6 @@
 // pages/mine/mine.js
 const app = getApp()
+const users = wx.cloud.database().collection('users')
 Page({
 
   /**
@@ -9,20 +10,43 @@ Page({
     tabBarList: app.globalData.tabBarList,
     // Todo: GetUserInfo
     avatarUrl: "../../asset/defaultUser.svg",
-    userName: "default"
+    userName: "点击头像登录用户 >"
   },
-  tabChange(e){
+  tabChange(e) {
     app.tabChange(e);
   },
   bindchooseavatar(e) {
-    this.setData({avatarUrl: e.detail.avatarUrl})
-    this.selectComponent("1")&&this.selectComponent("1").refresh()
+    this.setData({
+      avatarUrl: e.detail.avatarUrl,
+      userName: "欢迎来到FunRun乐跑 >"
+    })
+    this.selectComponent("userImage") && this.selectComponent("userImage").refresh()
+    this.selectComponent("user") && this.selectComponent("user").refresh()
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        let openid = res.result.openid
+        users.where({
+          _openid: openid
+        }).get().then(res => {
+          let length = res.data.length
+          if (length !== 1) {
+            users.add({
+              data: {
+                _openid: openid
+              }
+            }).then(res => {
+              console.log(res)
+            })
+          }
+        })
+      }
+    })
   },
 
   /**

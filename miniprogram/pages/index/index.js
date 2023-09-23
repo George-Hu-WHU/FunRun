@@ -7,16 +7,15 @@ Page({
    */
   data: {
     tabBarList: app.globalData.tabBarList,
-    imageUrls: [
-    ],
-    list:[],
+    imageList: [],
+    shareList:[],
     // 数据列表加载中
     listDataLoading: false,
     // 瀑布流加载中
     waterfallLoading: false,
     // 数据加载完毕
     loaded: false,
-    id: 1,
+    pid: 1,
 
     indicatorDots: true, //小点，根据图的数量自动增加小点
     autoplay: true, //是否自动轮播
@@ -64,12 +63,23 @@ Page({
 
   loadRotateImage: function(){
     let tmp = [
-      "https://th.bing.com/th/id/R.72775cc8aa917dbd5e4353ddf43b7835?rik=n0Bswvn%2fdxB%2f4g&riu=http%3a%2f%2fpic.ntimg.cn%2ffile%2f20190911%2f10779984_143401754081_2.jpg&ehk=%2bvmQc5NpTSx%2ffaIejhiRbuHQWct7iVp2jj7jh22RMfY%3d&risl=&pid=ImgRaw&r=0",
-      "https://img.alicdn.com/imgextra/i4/262595263/O1CN01mIUFEt1okV5yIITnt_!!262595263.jpg",
-      "https://img.51miz.com/Element/00/59/58/36/3a13070c_E595836_ae870f0e.jpg"
+      { 
+        pid:1,
+        imageUrl:"https://th.bing.com/th/id/R.72775cc8aa917dbd5e4353ddf43b7835?rik=n0Bswvn%2fdxB%2f4g&riu=http%3a%2f%2fpic.ntimg.cn%2ffile%2f20190911%2f10779984_143401754081_2.jpg&ehk=%2bvmQc5NpTSx%2ffaIejhiRbuHQWct7iVp2jj7jh22RMfY%3d&risl=&pid=ImgRaw&r=0",
+        link:""},
+      { 
+        pid:2,
+        imageUrl:"https://img.alicdn.com/imgextra/i4/262595263/O1CN01mIUFEt1okV5yIITnt_!!262595263.jpg",
+        link:""
+      },
+      {
+        pid:3,
+        imageUrl:"https://img.51miz.com/Element/00/59/58/36/3a13070c_E595836_ae870f0e.jpg",
+        link:""
+      }
     ]
     this.setData({
-      imageUrls: tmp
+      imageList: tmp
     })
 
     // 创建数据库后请求数据
@@ -83,7 +93,7 @@ Page({
     //   success(res){
     //     console.log(res.data)
     //     that.setData({
-    //       imageUrls: res.data
+    //       imageList: res.data
     //     })
     //     wx.hideLoading()
     //   }
@@ -93,20 +103,21 @@ Page({
   // 加载更多
   loadMore() {
     // console.log('loadMore')
-    let { list } = this.data
+    let { shareList } = this.data
     let more = this.getMockData()
-    list = [...list, ...more]
-    this.setData({ list })
+    shareList = [...shareList, ...more]
+    this.setData({ shareList })
   },
 
   // 刷新新瀑布流
   update() {
-    this.data.id = 1
+    this.data.pid = 1
     // 重置瀑布流组件
     this.setData({ loaded: false })
     this.selectComponent('#waterfall').reset()
-    let list = this.getMockData()
-    this.setData({ list })
+    let shareList = this.getMockData()
+    this.setData({ shareList })
+    // console.log(shareList)
     wx.stopPullDownRefresh()
     wx.hideLoading()
   },
@@ -169,28 +180,29 @@ Page({
    * 获取模拟数据
    */
   getMockData() {
-    let { id, listDataLoading, loaded } = this.data
+    let { pid, listDataLoading, loaded } = this.data
     if (listDataLoading || loaded) return []
     this.setData({ listDataLoading: true })
-    let list = []
+    let shareList = []
     const imgWidth = 300
     for (let i = 0; i < 10; i++) {
       let mockText = this.getMockText()
       let imgHeight = parseInt(Math.random() * 5 + 1) * 100
-      list.push({
-        id,
+      shareList.push({
+        pid,
         text: mockText,
-        imgUrl: `https://via.placeholder.com/${imgWidth}x${imgHeight}.jpeg/07c160/fff?text=${id}(${imgWidth}x${imgHeight})`,
+        link: "",
+        imgUrl: `https://via.placeholder.com/${imgWidth}x${imgHeight}.jpeg/07c160/fff?text=${pid}(${imgWidth}x${imgHeight})`,
         // imgUrl: `https://iph.href.lu/${imgWidth}x${imgHeight}?fg=ffffff&bg=07c160&text=我是图片${id}(${imgWidth}x${imgHeight})`,
         // imgUrl: `http://placekitten.com/${imgWidth}/${imgHeight}`,
       })
-      this.data.id = ++id
+      this.data.pid = ++pid
     }
     this.setData({ listDataLoading: false })
-    if (id > 30) {
+    if (pid > 30) {
       this.setData({ loaded: true })
     }
-    return list
+    return shareList
   },
 
   // 模拟不同长度文字

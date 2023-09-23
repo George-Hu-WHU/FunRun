@@ -1,4 +1,9 @@
 /* pages/indexTest/indexTest.wxss */
+.wrapper{
+  min-height: 100%;
+  position: relative;
+}
+
 .rotationContainer, .swiper{
   height: 350rpx;
 }
@@ -49,9 +54,8 @@
 
 #content {
     border-width: 0rpx;
-    position: absolute;
-    left: 0rpx;
-    top: 375rpx;
+    /* position: absolute; */
+    padding-top: 30rpx;
     width: 100%;
     height: 100%;
     display: flex;
@@ -67,9 +71,7 @@
   display: -webkit-flex;
   justify-content:space-evenly;
   border-width: 0rpx;
-  position: absolute;
-  left: 0rpx;
-  top: 0rpx;
+  /* position: absolute; */
   width: 100%;
   height: 200rpx;
   background: inherit;
@@ -111,9 +113,9 @@
 
 #sport-text{
   border-width: 0px;
-  position: absolute;
+  position: relative;
   left: 5rpx;
-  top: 120rpx;
+  padding-top: 20rpx;
   width: 125rpx;
   height: 58rpx;
   display: flex;
@@ -124,15 +126,21 @@
 }
 
 .wrap{
-  top: 650rpx;
+  position: relative;
+  top: 30rpx;
   width: 100%;
-  position: absolute;
 }
 .load-tips{
   text-align: center;
   line-height: 2;
   font-size: 28rpx;
-  color: #666;
+  color: rgb(102, 102, 102);
   line-height: 1.5;
   padding: 20rpx 0;
+}
+mp-tabbar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 0;
 }

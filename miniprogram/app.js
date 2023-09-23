@@ -3,7 +3,7 @@ App({
   globalData: {
     tabBarList: [
       {
-        "pagePath": "../map/map",
+        "pagePath": "../runningmap/runningmap",
         "text": "跑步",
         "iconPath": "../../../asset/run.svg",
         "selectedIconPath": "../../../asset/run-selected.svg"

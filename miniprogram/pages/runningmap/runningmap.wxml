@@ -1,0 +1,29 @@
+
+
+<view class="mainView">
+   <map
+
+        scale="18" 
+        polyline="{{polyline}}"
+        show-location style="width: 100%; height: 300px;"
+        map id="map"
+        class="mapView"
+        style="width: 100%; height: 375px;"
+        latitude="{{latitude}}"
+        longitude="{{longitude}}"
+        markers="{{markers}}"
+        covers="{{covers}}"
+        >
+    </map>
+
+</view>
+<view class="head" style="flex-direction:row;">
+
+    <button bindtap="openLocation">位置</button>
+    <button bindtap="starRun">开始</button>
+    <button bindtap="stopRun">暂停</button>
+    <button bindtap="stop">结束</button>
+    <text>里程数: {{meters}}km</text>
+    <text>\n时间：{{time}}</text>
+    <text>\n千卡：{{dataObj}}k</text>
+</view>

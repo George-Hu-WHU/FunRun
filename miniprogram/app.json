@@ -1,11 +1,11 @@
 {
-  "pages": [
+  "pages": [    "pages/runningmap/runningmap",
     "pages/index/index",
     "pages/map/map",
     "pages/mine/mine",
     "pages/questionaire/questionaire",
     "pages/plan/plan",
-    "pages/runningmap/runningmap",
+
     "pages/login/login"
   ],
   "permission": {

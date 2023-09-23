@@ -15,7 +15,7 @@ function drawline() {
   that2.setData({
      polyline : [{
         points : point,
-         color : '#FF0066',
+        colorList : "#297245",
          width : 4,
          dottedLine : false
      }]
@@ -138,7 +138,7 @@ Page({
     // 页面初始化 options为页面跳转所带来的参数
     
     that2 = this;
-        wx.getaLocation({
+        wx.getLocation({
            type: 'gcj02',
             success : function (res) {
                 that2.setData({

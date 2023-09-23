@@ -4,11 +4,12 @@
 	<view>{{model==0?'转经纬度':'转地址'}}</view>
 </view> -->
 <view class="fixed_model">
-	<input class="in" bindinput="oninput" value="{{model==0?address:location}}" data-key="{{model==0?'address':'location'}}" placeholder="{{model==0?'拖动地图定位位置或输入地址':'如：22.5401,113.9345'}}" cursor-spacing="20"/>
+	<!-- <input class="in" bindinput="oninput" value="{{model==0?address:location}}" data-key="{{model==0?'address':'location'}}" placeholder="{{model==0?'拖动地图定位位置或输入地址':'如：22.5401,113.9345'}}" cursor-spacing="20"/> -->
 	<view class="btn" bindtap="query">
 		<image src="../../asset/local.svg"></image>
 	</view>
 </view>
+
 <!-- <view class="info_model">
 	<view class="info_item">
 		<view>经纬度</view>

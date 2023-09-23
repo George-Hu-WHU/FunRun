@@ -20,7 +20,7 @@ Page({
       adinfo: '-', // 行政区
       formatted: '-', // 推荐地址
       location: '-' // 经纬度
-    }
+    },
   },
   /**
    * 页面装载回调
@@ -47,6 +47,27 @@ Page({
       }
     })
   },
+
+  onChange:function(event){
+    if (event.detail.source) {
+      this._offsetY = event.detail.y
+   }
+  },
+
+  onTouchEnd: function(){
+    const y = this._offsetY;
+      const idx = this.segs.findIndex(item => {
+        return (
+          y >= item.min_value && y <= item.max_value
+        );
+      });
+      if (idx !== -1) {
+        this.setData({
+            offsetY: this.segs[idx].value
+        })
+      }
+  },
+
   /**
    * 改变输入框类型
    */

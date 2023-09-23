@@ -1,5 +1,6 @@
 // pages/login/login.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const users = wx.cloud.database().collection('users')
 Page({
 
   /**
@@ -12,6 +13,32 @@ Page({
     const { avatarUrl } = e.detail
     this.setData({
       avatarUrl,
+    })
+  },
+  submitForm(e){
+    this.setData({
+      avatarName: e.detail.value.input
+    })
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        let _id = res.result.openid
+        users.where({
+          _openid: _id
+        }).get().then(res => {
+          if (res.data.length !== 1) {
+            users.add({
+              data: {
+                avatarUrl: this.data.avatarUrl,
+                avatarName: this.data.avatarName
+              }
+            })
+          }
+        })
+      }
+    })
+    wx.navigateTo({
+      url: "/pages/mine/mine",
     })
   },
   /**

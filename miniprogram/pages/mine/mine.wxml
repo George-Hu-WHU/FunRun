@@ -1,6 +1,6 @@
 <!--pages/mine/mine.wxml-->
 <mp-cells>
-  <mp-cell id="user" bind:tap="login" footer="{{userName}}">
+  <mp-cell id="user" bind:tap="login" footer="{{avatarName}}">
       <image class="userImage" id="userImage" src="{{avatarUrl}}"></image>
   </mp-cell>
   <mp-cell footer="100.00元">我的钱包</mp-cell>

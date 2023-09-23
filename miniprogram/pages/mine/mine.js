@@ -10,7 +10,7 @@ Page({
     tabBarList: app.globalData.tabBarList,
     // Todo: GetUserInfo
     avatarUrl: "../../asset/defaultUser.svg",
-    userName: "点击头像登录用户 >"
+    avatarName: "点击头像登录用户 >"
   },
   login(e){
     wx.navigateTo({
@@ -20,14 +20,6 @@ Page({
   tabChange(e) {
     app.tabChange(e);
   },
-  bindchooseavatar(e) {
-    this.setData({
-      avatarUrl: e.detail.avatarUrl,
-      userName: "欢迎来到FunRun乐跑 >"
-    })
-    this.selectComponent("userImage") && this.selectComponent("userImage").refresh()
-    this.selectComponent("user") && this.selectComponent("user").refresh()
-  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -35,20 +27,8 @@ Page({
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
-        let openid = res.result.openid
         users.where({
-          _openid: openid
-        }).get().then(res => {
-          let length = res.data.length
-          if (length !== 1) {
-            users.add({
-              data: {
-                _openid: openid
-              }
-            }).then(res => {
-              console.log(res)
-            })
-          }
+          _openid: res.result.openid
         })
       }
     })

@@ -4,3 +4,11 @@ image {
   height: 100%;
   width: 100%;
 }
+
+input {
+  margin-left: 50rpx;
+}
+
+button {
+  margin-top: 50rpx;
+}

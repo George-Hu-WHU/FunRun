@@ -1,3 +1,4 @@
+<div class="wrapper">
 <div><view class="rotationContainer">
 <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" previous-margin="{{previous_margin}}" next-margin="{{next_margin}}" current="activeIndex" bindchange="switchCard">
   <block wx:for="{{imageList}}" wx:key="pid" wx:index="index">
@@ -49,4 +50,11 @@
     <view wx:if="{{loaded}}">加载完毕</view>
   </view>
 </div>
+<<<<<<< Updated upstream
 <mp-tabbar ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{tabBarList}}" bindchange="tabChange" current="1"></mp-tabbar>
+=======
+
+<div><mp-tabbar ext-class="foot-tabbar" list="{{tabBarList}}" bindchange="tabChange" current="1"/></div>
+
+</div>
+>>>>>>> Stashed changes

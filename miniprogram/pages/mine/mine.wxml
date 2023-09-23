@@ -1,9 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <mp-cells>
-  <mp-cell id="user" footer="{{userName}}">
-    <button open-type="chooseAvatar" style="height: 150rpx;width: 150rpx;margin-left: 0;padding: 0%;" bindchooseavatar="bindchooseavatar">
+  <mp-cell id="user" bind:tap="login" footer="{{userName}}">
       <image class="userImage" id="userImage" src="{{avatarUrl}}"></image>
-    </button>
   </mp-cell>
   <mp-cell footer="100.00元">我的钱包</mp-cell>
   <mp-cell footer="100条">我的计划</mp-cell>

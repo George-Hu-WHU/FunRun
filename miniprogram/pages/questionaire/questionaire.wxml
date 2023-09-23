@@ -1,0 +1,66 @@
+<view id="container-top">
+<view>这里是问卷调查，我们需要了解您的部分信息，以便为你规划适合的跑步方案</view>
+<form bindsubmit="formsubmit" bindreset="formreset">
+
+<view>1、您的年龄</view>
+<radio-group name="age">
+<block wx:for="{{ages}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>2、您的性别是</view>
+<radio-group name="gender">
+<block wx:for="{{genders}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>3、您目前的体重大概多少</view>
+<radio-group name="kg">
+<block wx:for="{{weight}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>4、您目前身高大概多少</view>
+<radio-group name="cm">
+<block wx:for="{{hight}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>5、您的健康状况如何</view>
+<radio-group name="healthy_condition">
+<block wx:for="{{healthy_conditions}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>6、您想计划的每周跑步运动的次数是多少</view>
+<radio-group name="rate">
+<block wx:for="{{runrate}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>7、您的主要跑步目标是</view>
+<radio-group name="object">
+<block wx:for="{{objects}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>8、您的跑步经验如何</view>
+<radio-group name="experience">
+<block wx:for="{{experiences}}" wx:for-item="item" wx:key="index">
+  <label><radio value="{{item.val}}"/>{{item.val}}</label>
+</block>
+</radio-group>
+
+<view>
+<button type="primary" class="button" form-type="submit" size="mini">点击提交</button>
+<button type="primary" class="button" form-type="reset" size="mini">点击重置</button>
+</view>
+</form>
+</view>

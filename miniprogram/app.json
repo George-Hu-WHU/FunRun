@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/map/map",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/questionaire/questionaire",
+    "pages/plan/plan"
   ],
   "permission": {
     "scope.userLocation": {

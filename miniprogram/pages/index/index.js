@@ -50,6 +50,24 @@ Page({
     })
   },
 
+  //跳转问卷
+  go2questionaire: function(param){
+    wx.navigateTo({
+ 
+      url: '/pages/questionaire/questionaire',
+ 
+      })
+  },
+
+  //跳转计划
+  go2plan: function(param){
+    wx.navigateTo({
+ 
+      url: '/pages/plan/plan',
+ 
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

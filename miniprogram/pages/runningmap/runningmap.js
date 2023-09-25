@@ -1,10 +1,13 @@
+const app = getApp()
+
 var countTooGetLocation = 0;
 var total_micro_second = 0;
 var starRun = 0;
 var totalSecond  = 0;
 var oriMeters = 0.0;
 
-//var weightData=0, // 提取的weight数据  
+var dbweightData = "";//数据库中string类型的体重范围
+var weightData = 0; // 提取的weight数据  
 
 
 var point = [];
@@ -99,6 +102,37 @@ function getDistance(lat1, lng1, lat2, lng2) {
 
 function fill_zero_prefix(num) {
     return num < 10 ? "0" + num : num
+}
+
+function getweight(e) {
+  const db = wx.cloud.database()
+  db.collection('questionaire_data').where({
+    _openid: app.globalData.openid
+  }).get({
+    success: function(res) {
+      dbweightData = res.data[0].kg;
+      console.log('获取成功');
+    },
+    fail: function() {
+      wx.showToast({
+        icon: 'none',
+        title: '请先完成调查问卷'
+        })
+    }
+  })
+
+  if(dbweightData == "40kg以下"){
+    weightData = 30;
+  }
+  else if(dbweightData == "40~60kg"){
+    weightData = 50;
+  }
+  else if(dbweightData == "60~80kg"){
+    weightData = 70;
+  }
+  else{
+    weightData = 90;
+  }
 }
 
 //****************************************************************************************

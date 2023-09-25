@@ -30,13 +30,13 @@ Page({
       val: "45岁以上"
     }, ],
     weight: [{
-      val: "50kg以下"
+      val: "40kg以下"
     }, {
-      val: "50~60kg"
+      val: "40~60kg"
     }, {
-      val: "60~70kg"
+      val: "60~80kg"
     }, {
-      val: "70kg以上"
+      val: "80kg以上"
     }, ],
     hight: [{
       val: "160cm以下"
@@ -106,7 +106,8 @@ Page({
       setTimeout(function () {
         wx.hideToast()
       }, 2000)
-    } else {
+    }
+    else {
       const db = wx.cloud.database()
       db.collection('questionaire_data').where({
         _openid: app.globalData.openid

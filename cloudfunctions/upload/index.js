@@ -9,7 +9,9 @@ exports.main = async (event, context) => {
   const users = cloud.database().collection('users')
   return await users.where({
     _openid: wxContext.OPENID
-  }).get()
+  }).get().then(res => {
+    console.log(res)
+  })
   // return await users.add({
   //   _openid: wxContext.OPENID,
   //   avatarName: event.avatarName

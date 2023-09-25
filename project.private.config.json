@@ -3,5 +3,6 @@
   "projectname": "funRun",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "3.1.0"
 }

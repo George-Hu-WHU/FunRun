@@ -14,7 +14,6 @@ Page({
     this.setData({
       avatarUrl,
     })
-    console.log(avatarUrl)
   },
   submitForm(e){
     this.setData({
@@ -23,8 +22,6 @@ Page({
     wx.cloud.uploadFile({
       cloudPath: 'avatarUrl/' + this.data.openid,
       filePath: this.data.avatarUrl
-    }).then(res => {
-      console.log(res)
     })
     wx.cloud.callFunction({
       name: 'upload',
@@ -42,7 +39,6 @@ Page({
     wx.cloud.callFunction({
       name: 'login'
     }).then(res => {
-      console.log(res.result.openid)
       that.setData({
         openid: res.result.openid
       })

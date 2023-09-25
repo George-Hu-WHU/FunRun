@@ -1,6 +1,5 @@
 // pages/plan.js
 var app = getApp()
-app.globalData.openid
 const { envList } = require('../../envList.js');
 
 Page({
@@ -9,7 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    gender:"",
+    age:"",
+    kg:"",
+    cm:"",
+    healthy_condition:"",
+    rate:"",
+    object:"",
+    experience:""
   },
 
   /**

@@ -187,9 +187,6 @@ Page({
         getalocation();
         drawline();
     }
-
-
-
   },
 
 

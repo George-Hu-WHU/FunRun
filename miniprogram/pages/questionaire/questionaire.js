@@ -1,6 +1,5 @@
 // questionaire.js
 var app = getApp()
-app.globalData.openid
 const { envList } = require('../../envList.js');
 
 

@@ -33,14 +33,12 @@ App({
 
   //获取用户openid(后端用)
   onLaunch:function(){
-
     let that = this;
     wx.cloud.callFunction({
       name:'login',
-      sucess(rec){
+      sucess(res){
         console.log(res);
         console.log(res.result.openid);
-        
         that.globalData.openid = res.result.openid;
       }
     })

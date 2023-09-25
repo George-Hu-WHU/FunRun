@@ -1,0 +1,51 @@
+<div><view class="rotationContainer">
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true" previous-margin="{{previous_margin}}" next-margin="{{next_margin}}" current="activeIndex" bindchange="switchCard">
+  <block wx:for="{{imageUrls}}" wx:key="*this" wx:index="index">
+      <swiper-item class="swiper-item-warp">
+        <view class="swiper-item {{activeIndex == index? 'current' : ''}}">
+          <image class="swiper-item-image" bindload="imageSize" style="width:{{ imageWidth }}rpx; height: {{imageHeight}}rpx;" src="{{item}}"/>
+        </view>
+      </swiper-item>
+  </block>
+</swiper>
+</view></div>
+
+<div id="content">
+  <div id="panel">
+    <div class="sport-tab" style="cursor: pointer;">
+        <image id="sport-icon" src="../../asset/sport_plan.svg" tabindex="0"/>
+      <div id="sport-text">
+        <text>运动计划</text>
+      </div>
+    </div>
+    <div class="sport-tab" style="cursor: pointer;">
+      <image id="sport-icon" src="../../asset/sport_data.svg" tabindex="1"/>
+      <div id="sport-text">
+        <text>运动数据</text>
+      </div>
+    </div>
+    <div class="sport-tab" style="cursor: pointer;">
+      <image id="sport-icon" src="../../asset/sport_tips.svg" tabindex="1"/>
+      <div id="sport-text">
+        <text>跑步贴士</text>
+      </div>
+    </div>
+    <div class="sport-tab" style="cursor: pointer;">
+      <image id="sport-icon" src="../../asset/sport-more.svg" tabindex="1"/>
+      <div id="sport-text">
+        <text>更多信息</text>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <mp-waterfall id="waterfall" generic:item="waterfall-item" list="{{list || []}}" idKey="id" imageKey="imgUrl" colNum="2" gutter="5%" bind:loadingChange="onLoadingChange" order="{{false}}"></mp-waterfall>
+  <view class="load-tips">
+    <view wx:if="{{listDataLoading || waterfallLoading}}">加载中...</view>
+    <view wx:if="{{loaded}}">加载完毕</view>
+  </view>
+</div>
+<mp-tabbar ext-class="foot-tabbar" style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{tabBarList}}" bindchange="tabChange" current="1"></mp-tabbar>
+
+

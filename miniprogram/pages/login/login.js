@@ -14,38 +14,39 @@ Page({
     this.setData({
       avatarUrl,
     })
+    console.log(avatarUrl)
   },
   submitForm(e){
     this.setData({
       avatarName: e.detail.value.input
     })
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        let _id = res.result.openid
-        users.where({
-          _openid: _id
-        }).get().then(res => {
-          if (res.data.length !== 1) {
-            users.add({
-              data: {
-                avatarUrl: this.data.avatarUrl,
-                avatarName: this.data.avatarName
-              }
-            })
-          }
-        })
-      }
+    wx.cloud.uploadFile({
+      cloudPath: 'avatarUrl/' + this.data.openid,
+      filePath: this.data.avatarUrl
+    }).then(res => {
+      console.log(res)
     })
-    wx.navigateTo({
-      url: "/pages/mine/mine",
+    wx.cloud.callFunction({
+      name: 'upload',
+      data: {
+        _openid: this.data.openid,
+        avatarName: this.data.avatarName
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const that = this
+    wx.cloud.callFunction({
+      name: 'login'
+    }).then(res => {
+      console.log(res.result.openid)
+      that.setData({
+        openid: res.result.openid
+      })
+    })
   },
 
   /**

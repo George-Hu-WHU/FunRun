@@ -8,6 +8,8 @@ Page({
   data: {
     tabBarList: app.globalData.tabBarList,
     imageList: [],
+
+    // 以下为瀑布流变量与参数
     shareList:[],
     // 数据列表加载中
     listDataLoading: false,
@@ -15,18 +17,23 @@ Page({
     waterfallLoading: false,
     // 数据加载完毕
     loaded: false,
+
+    //图像id
     pid: 1,
 
+    // 以下为轮播组件参数
     indicatorDots: true, //小点，根据图的数量自动增加小点
     autoplay: true, //是否自动轮播
     interval: 3000, //轮播组件间隔时间
     duration: 1000, //轮播组件滑动时间
-    activeIndex: 0,
-    previous_margin: "20rpx",
-    next_margin: "20rpx",
-    imageWidth: 0,
-    imageHeight: 0
+    activeIndex: 0, //轮播窗口序号
+    previous_margin: "20rpx", //轮播图像前一张的重叠像素
+    next_margin: "20rpx", //轮播图像后一张的重叠像素
+    imageWidth: 0, //图像宽度
+    imageHeight: 0 //图像高度
+
   },
+  
   tabChange(e){
     app.tabChange(e);
   },
@@ -48,24 +55,6 @@ Page({
       imageWidth: viewWidth,
       imageHeight: viewHeight
     })
-  },
-
-  //跳转问卷
-  go2questionaire: function(param){
-    wx.navigateTo({
- 
-      url: '/pages/questionaire/questionaire',
- 
-      })
-  },
-
-  //跳转计划
-  go2plan: function(param){
-    wx.navigateTo({
- 
-      url: '/pages/plan/plan',
- 
-      })
   },
 
   /**

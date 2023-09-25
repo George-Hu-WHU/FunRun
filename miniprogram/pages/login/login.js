@@ -1,5 +1,5 @@
-// pages/mine/mine.js
-const app = getApp()
+// pages/login/login.js
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const users = wx.cloud.database().collection('users')
 Page({
 
@@ -7,31 +7,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabBarList: app.globalData.tabBarList,
-    // Todo: GetUserInfo
-    avatarUrl: "../../asset/defaultUser.svg",
-    avatarName: "点击头像登录用户 >"
+    avatarUrl: defaultAvatarUrl,
   },
-  login(e){
-    wx.navigateTo({
-      url: '../login/login',
+  onChooseAvatar(e){
+    const { avatarUrl } = e.detail
+    this.setData({
+      avatarUrl,
     })
   },
-  tabChange(e) {
-    app.tabChange(e);
+  submitForm(e){
+    this.setData({
+      avatarName: e.detail.value.input
+    })
+    wx.cloud.callFunction({
+      name: 'login',
+      complete: res => {
+        let _id = res.result.openid
+        users.where({
+          _openid: _id
+        }).get().then(res => {
+          if (res.data.length !== 1) {
+            users.add({
+              data: {
+                avatarUrl: this.data.avatarUrl,
+                avatarName: this.data.avatarName
+              }
+            })
+          }
+        })
+      }
+    })
+    wx.navigateTo({
+      url: "/pages/mine/mine",
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        users.where({
-          _openid: res.result.openid
-        })
-      }
-    })
+
   },
 
   /**

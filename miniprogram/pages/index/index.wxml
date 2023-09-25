@@ -22,7 +22,7 @@
         <text>运动计划</text>
       </div>
     </navigator>
-    <navigator class="sport-tab" style="cursor: pointer;" url="" open-type="navigate">
+    <navigator class="sport-tab" style="cursor: pointer;" url="/pages/record/record" open-type="navigate">
       <image id="sport-icon" src="../../asset/sport_data.svg" tabindex="1"/>
       <div id="sport-text">
         <text>运动数据</text>

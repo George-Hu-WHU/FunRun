@@ -1,0 +1,35 @@
+<view class="container" style="width: 70%; height: 70%;">
+  <ec-canvas id="line-chart" canvas-id="lineCanvas" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
+<view style="margin-top:400px; font-size: large; font-weight: 1000;">成绩预测</view>
+<view class="table">
+    <!-- 表头(即第一行) -->
+    <view class="tr">
+        <view class="th">距离</view>
+        <view class="th">用时</view>
+        <view class="th">平均配速</view>
+    </view>
+    <!-- 表格第二行 -->
+    <view class="tr">
+        <view class="td">1.5km</view>
+        <view class="td">27：03</view>
+        <view class="td">18"21'</view>
+    </view>
+
+    <!-- 表格第三行 -->
+    <view class="tr">
+        <view class="td">2km</view>
+        <view class="td">40:12</view>
+        <view class="td">20"10'</view>
+    </view>
+    
+    <!-- 表格第四行 -->
+    <view class="tr">
+        <view class="td">3km</view>
+        <view class="td">1:05:56</view>
+        <view class="td">20"05'</view>
+    </view>
+</view>
+

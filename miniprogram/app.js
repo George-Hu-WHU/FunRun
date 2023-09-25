@@ -15,7 +15,7 @@ App({
         "selectedIconPath": "../../../asset/index-selected.svg"
       },
       {
-        "pagePath": "../map/map",
+        "pagePath": "../record/record",
         "text": "数据",
         "iconPath": "../../../asset/data.svg",
         "selectedIconPath": "../../../asset/data-selected.svg"

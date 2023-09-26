@@ -19,7 +19,7 @@
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
-    "uglifyFileName": false,
+    "uglifyFileName": true,
     "checkInvalidKey": true,
     "checkSiteMap": false,
     "uploadWithSourceMap": true,
@@ -41,7 +41,7 @@
     "minifyWXSS": true,
     "showES6CompileOption": false,
     "useSummerCompiler": false,
-    "ignoreUploadUnusedFiles": false
+    "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.1",

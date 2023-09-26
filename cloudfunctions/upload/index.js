@@ -10,12 +10,23 @@ exports.main = async (event, context) => {
   return await users.where({
     _openid: wxContext.OPENID
   }).get().then(res => {
-    console.log(res)
+    if (res.data.length == 0){
+      users.add({
+        data: {
+          _openid: wxContext.OPENID,
+          avatarName: event.avatarName,
+          fileID: event.fileID
+        }
+      })
+    } else {
+      users.where({
+        _openid: wxContext.OPENID
+      }).update({
+        data: {
+          avatarName: event.avatarName,
+          fileID: event.fileID
+        }
+      })
+    }
   })
-  // return await users.add({
-  //   _openid: wxContext.OPENID,
-  //   avatarName: event.avatarName
-  // }).then(res => {
-  //   console.log(res)
-  // })
 }

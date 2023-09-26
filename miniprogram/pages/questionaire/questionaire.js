@@ -21,10 +21,10 @@ Page({
       val: "女"
     }],
     ages: [
-      {name:"18岁以下", val: "18岁以下", checked: true},
-      {name:"18~30岁", val: "18~30岁"},
-      {name:"30~45岁", val: "30~45岁"},
-      {name:"45岁以上", val: "45岁以上"}
+      {val: "18岁以下", checked: true},
+      {val: "18~30岁"},
+      {val: "30~45岁"},
+      {val: "45岁以上"}
     ],
     weight: [{
       val: "40kg以下"

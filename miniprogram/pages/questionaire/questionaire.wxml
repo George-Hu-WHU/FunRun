@@ -1,11 +1,12 @@
-<mp-form-page title="运动信息" subtitle="这里是问卷调查，我们需要了解您的部分信息，以便为你规划适合的跑步方案">
+<mp-form-page title="运动信息" 
+subtitle="这里是问卷调查，我们需要了解您的部分信息，以便为你规划适合的跑步方案">
 
   <mp-form bindsubmit="formsubmit" bindreset="formreset">
     <mp-cells>
 
       <mp-cell title="您的年龄">
         <mp-checkbox-group multi="{{false}}" name="age">
-          <mp-checkbox wx:for="{{ages}}" wx:key="index" label="{{item.name}}" value="{{item.val}}" checked="{{item.checked}}">
+          <mp-checkbox wx:for="{{ages}}" wx:key="index" label="{{item.val}}" value="{{item.val}}" checked="{{item.checked}}">
           </mp-checkbox>
         </mp-checkbox-group>
       </mp-cell>
@@ -43,12 +44,6 @@
       <mp-cell title="您的主要跑步目标是">
         <mp-checkbox-group multi="{{false}}" name="object">
           <mp-checkbox wx:for="{{objects}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
-        </mp-checkbox-group>
-      </mp-cell>
-
-      <mp-cell title="您的跑步经验如何">
-        <mp-checkbox-group multi="{{false}}" name="experience">
-          <mp-checkbox wx:for="{{experiences}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
         </mp-checkbox-group>
       </mp-cell>
 

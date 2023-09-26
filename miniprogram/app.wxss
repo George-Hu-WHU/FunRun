@@ -1,3 +1,6 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
 Page{
   --mb-color:#353535;
   --zb-color:#505050;

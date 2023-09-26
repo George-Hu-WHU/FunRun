@@ -140,7 +140,6 @@ Page({
 //****************************
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    
     that2 = this;
         wx.getLocation({
            type: 'gcj02',
@@ -151,9 +150,6 @@ Page({
                 });
             }
         });
-
-
-    
     this.getLocation()
     console.log("onLoad")
     count_down(this);

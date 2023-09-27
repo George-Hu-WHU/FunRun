@@ -1,40 +1,37 @@
 // questionaire.js
-const {
-  envList
-} = require('../../envList.js');
-let openid = '';
-
 
 Page({
   data: {
-    gender: "",
-    age: "",
-    kg: "",
-    cm: "",
-    healthy_condition: "",
-    rate: "",
-    object: "",
-    experience: "",
     genders: [{
       val: "男"
     }, {
       val: "女"
     }],
-    ages: [
-      {val: "18岁以下", checked: true},
-      {val: "18~30岁"},
-      {val: "30~45岁"},
-      {val: "45岁以上"}
+    ages: [{
+        val: "18岁以下",
+        checked: true
+      },
+      {
+        val: "18~30岁"
+      },
+      {
+        val: "30~45岁"
+      },
+      {
+        val: "45岁以上"
+      }
     ],
     weight: [{
-      val: "40kg以下"
-    }, {
-      val: "40~60kg"
-    }, {
-      val: "60~80kg"
-    }, {
-      val: "80kg以上"
-    }, ],
+        val: "40kg以下"
+      }, {
+        val: "40~60kg"
+      },
+      {
+        val: "60~80kg"
+      }, {
+        val: "80kg以上"
+      },
+    ],
     hight: [{
       val: "160cm以下"
     }, {
@@ -82,6 +79,12 @@ Page({
     }],
   },
 
+  ratioChange(e) {
+    this.setData({
+      [e.currentTarget.id]: e.detail.value
+    })
+  },
+
   //调用云函数获取openid
   onLoad() {
     //由于this指向的是相对于wx:request()的当前对象，在request全局使用，
@@ -107,19 +110,13 @@ Page({
 
   //问卷结果上传数据库
   formsubmit: function (e) {
-    this.setData({
-      gender: e.detail.value.gender,
-      age: e.detail.value.age,
-      kg: e.detail.value.kg,
-      cm: e.detail.value.cm,
-      healthy_condition: e.detail.value.healthy_condition,
-      rate: e.detail.value.rate,
-      object: e.detail.value.object,
-      experience: e.detail.value.experience
-    })
     const db = wx.cloud.database()
+    const [age, cm, experience, gender, healthy_condition, kg, object, rate] = [this.data.age, this.data.cm, this.data.experience,
+      this.data.gender, this.data.healthy_condition,
+      this.data.kg, this.data.object, this.data.rate
+    ]
     //数据存在未选择项，不许提交
-    if (e.detail.value.gender.length == 0 || e.detail.value.age.length == 0 || e.detail.value.kg.length == 0 || e.detail.value.cm.length == 0 || e.detail.value.healthy_condition.length == 0 || e.detail.value.rate.length == 0 || e.detail.value.object.length == 0 || e.detail.value.experience.length == 0) {
+    if (!(age || cm || experience || gender || healthy_condition || kg || object || rate)) {
       wx.showToast({
         title: '请完成全部选择',
         icon: 'loading',
@@ -131,23 +128,24 @@ Page({
     }
     //准许提交
     else {
+      let openid = this.data.openid
       db.collection('questionaire_data').where({
         _openid: openid
-      }).get({
-        //获取成功，说明用户此前提交过问卷，仅修改提交过的问卷即可 
-        success(res) {
+      }).get().then(res => {
+        //获取成功，说明用户此前提交过问卷，仅修改提交过的问卷即可
+        if (res.data.length != 0) {
           db.collection('questionaire_data').where({
             _openid: openid
           }).update({
             data: {
-              gender: e.detail.value.gender,
-              age: e.detail.value.age,
-              kg: e.detail.value.kg,
-              cm: e.detail.value.cm,
-              healthy_condition: e.detail.value.healthy_condition,
-              rate: e.detail.value.rate,
-              object: e.detail.value.object,
-              experience: e.detail.value.experience
+              gender: gender,
+              age: age,
+              kg: kg,
+              cm: cm,
+              healthy_condition: healthy_condition,
+              rate: rate,
+              object: object,
+              experience: experience
             },
             success: function (res) {
               wx.showToast({
@@ -156,7 +154,7 @@ Page({
               })
               console.log('请求成功', res)
             },
-            fail(err) {
+            fail: function (res) {
               wx.showToast({
                 icon: 'none',
                 title: '提交失败'
@@ -164,29 +162,27 @@ Page({
               console.log('请求失败', res)
             }
           })
-          console.log(res.data)
-        },
-        //获取失败，说明此用户第一次提交问卷，需向数据库新增一条记录
-        fail(res) {
+        } else {
+          //获取失败，说明此用户第一次提交问卷，需向数据库新增一条记录
           db.collection('questionaire_data').add({
             data: {
-              gender: e.detail.value.gender,
-              age: e.detail.value.age,
-              kg: e.detail.value.kg,
-              cm: e.detail.value.cm,
-              healthy_condition: e.detail.value.healthy_condition,
-              rate: e.detail.value.rate,
-              object: e.detail.value.object,
-              experience: e.detail.value.experience
+              gender: gender,
+              age: age,
+              kg: kg,
+              cm: cm,
+              healthy_condition: healthy_condition,
+              rate: rate,
+              object: object,
+              experience: experience
             },
-            success(res) {
+            success: function (res) {
               wx.showToast({
                 itle: '提交成功',
                 duration: 1000
               })
               console.log('请求成功', res)
             },
-            fail(err) {
+            fail: function (res) {
               wx.showToast({
                 icon: 'none',
                 title: '提交失败'
@@ -202,15 +198,14 @@ Page({
   //页面重置
   formreset: function (e) {
     this.setData({
-      gender: "",
-      age: "",
-      kg: "",
-      cm: "",
-      healthy_condition: "",
-      rate: "",
-      object: "",
-      experience: "",
+      gender: undefined,
+      age: undefined,
+      kg: undefined,
+      cm: undefined,
+      healthy_condition: undefined,
+      rate: undefined,
+      object: undefined,
+      experience: undefined
     })
   }
-
 })

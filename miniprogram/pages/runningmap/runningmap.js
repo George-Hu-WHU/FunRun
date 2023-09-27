@@ -9,7 +9,7 @@ var oriMeters = 0.0;
 var dbweightData = "";//数据库中string类型的体重范围
 var weightData = 0; // 提取的weight数据  
 
-
+const windowHeight = wx.getSystemInfoSync().windowHeight
 var point = [];
 var that2;
 
@@ -123,7 +123,14 @@ Page({
     dataObj:0,
     polyline : [],
     weight:20,
-
+    defaultAnchors: [200, windowHeight * 0.5],
+    isRunning:false,
+    // 触摸开始时间
+    touchStartTime: 0,
+    // 触摸结束时间
+    touchEndTime: 0,
+    isLongpress: 0,
+    percentValue:100
   },
 
 // getDate(){
@@ -140,7 +147,6 @@ Page({
 //****************************
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    
     that2 = this;
         wx.getLocation({
            type: 'gcj02',
@@ -151,9 +157,6 @@ Page({
                 });
             }
         });
-
-
-    
     this.getLocation()
     console.log("onLoad")
     count_down(this);
@@ -222,16 +225,22 @@ Page({
         getalocation();
         drawline();
     }
+    this.setData({
+      isRunning:1
+    })
   },
 
 
  //****************************
   stopRun:function () {
-    starRun = 0;
+    starRun=0
     count_down(this);
 
     console.log('end');
     clearInterval(this.timer);
+    this.setData({
+      isRunning:0
+    })
   },
 
 
@@ -240,27 +249,36 @@ Page({
  
 //结束按钮
   stop:function () {
-    starRun = 0;
-    total_micro_second = 0//时间控件
-    oriMeters = 0.0//距离控件
-    point = [];//轨迹控件
-    this.setData({
-      polyline: [],
-      meters:" 0.00",
-      time: "0:00:00",
-      markers: [],
-      covers: [],
-      isLocation:false,
-      latitude: 0,
-      longitude: 0,
-      timer: 0,
-      });
-        that.updateTime(0)
+    var that = this
+    wx.showModal({
+      title: '提示',
+      content: '运动已结束',
+      success:function(res){
+        if(res.confirm){
+          starRun = 0;
+          total_micro_second = 0//时间控件
+          oriMeters = 0.0//距离控件
+          point = [];//轨迹控件
+
+          that.setData({
+            polyline: [],
+            meters:" 0.00",
+            time: "0:00:00",
+            markers: [],
+            covers: [],
+            isLocation:false,
+            latitude: 0,
+            longitude: 0,
+            timer: 0,
+            isRunning: 0,
+            isLongpress: 0
+            })
+          that.updateTime(0)
+        }else{
+        }
+      }
+    })
   },
-
-
-
-
 //****************************
   updateTime:function (time) {
 
@@ -339,6 +357,33 @@ Page({
         });
       },
     })
-  }
+  },
 
+  onHeightChange(e) {
+    // console.log('onHeightChange', e.detail)
+    const { height, maxHeight } = e.detail
+    const ratio = height / maxHeight
+    this.setData({
+      height: '100%',
+      backgroundImage: `linear-gradient(rgba(196,242,231,${ratio}),rgba(245,245,245, ${ratio}))`,
+    })
+  },
+
+  onLocation(e) {
+    // console.log('onLocation', e.target.dataset)
+    const { geo } = e.target.dataset
+    this.setData({
+      geo,
+    })
+  },
+
+  /// 按钮触摸开始触发的事件
+  touchStart: function(e) {
+    this.touchStartTime = e.timeStamp
+  },
+ 
+  /// 按钮触摸结束触发的事件
+  touchEnd: function(e) {
+    this.touchEndTime = e.timeStamp
+  },
 })

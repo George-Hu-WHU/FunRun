@@ -9,7 +9,6 @@ Page({
     }],
     ages: [{
         val: "18岁以下",
-        checked: true
       },
       {
         val: "18~30岁"
@@ -196,7 +195,7 @@ Page({
   },
 
   //页面重置
-  formreset: function (e) {
+  formreset:function(e){
     this.setData({
       gender: undefined,
       age: undefined,

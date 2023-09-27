@@ -1,9 +1,17 @@
-<view class="container" style="width: 70%; height: 70%;">
+<view class="page-container">
+
+
+<view class="header">
+    <view class="title">个人数据</view>
+  </view>
+
+<view class="container" style=" height: 70%;">
   <ec-canvas id="line-chart" canvas-id="lineCanvas" ec="{{ ec }}"></ec-canvas>
 </view>
 
 
-<view style="margin-top:450px; font-size: large; font-weight: 1000;">成绩预测</view>
+<view class="table-container">
+<view style="margin-top: 500px;font-size: large; font-weight: 1000;">|成绩预测</view>
 <view class="table">
   <view class="tr">
     <view class="th">距离（千米）</view>
@@ -16,4 +24,11 @@
     <view class="td">{{ item.pace }}</view>
   </view>
 </view>
+</view>
 
+<view class="footer">
+    <view class="footer-text">FunRun乐跑</view>
+  </view>
+
+
+</view>

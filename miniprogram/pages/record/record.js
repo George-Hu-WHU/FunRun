@@ -16,8 +16,8 @@ function initChart(canvas, width, height) {
     // 在这里使用 ECharts 设置折线图的配置项
     const option = {
       title: {
-        text: '每周跑步次数变化',
-        left: 'center'
+        text: '|历史数据',
+        left: 'left'
       },
       
       xAxis: {
@@ -44,6 +44,7 @@ function initChart(canvas, width, height) {
 
 Page({
   data: {
+
     paceData: [], // 存储距离、平均配速和平均时间的数组
     ec: {
       onInit: initChart

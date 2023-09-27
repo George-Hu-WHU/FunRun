@@ -32,7 +32,11 @@ Page({
       data: {
         avatarName: this.data.avatarName,
         fileID: that.data.fileid
-      }
+      },
+    }).then(() => {
+      wx.navigateTo({
+        url: '/pages/mine/mine',
+      })
     })
   },
   /**
@@ -47,9 +51,6 @@ Page({
       that.setData({
         openid: res.result.openid
       })
-      // users.where({
-      //   _openid: res.result.openid
-      // })
     })
   },
 

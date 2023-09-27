@@ -1,52 +1,73 @@
 <!--pages/plan.wxml-->
 
-<view class="cu-card article">
-	<view class="cu-item shadow">
-		<view class="title"><view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view></view>
-		<view class="content">
-			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-			 mode="aspectFill"></image>
-			<view class="desc">
-				<view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！</view>
-				<view>
-					<view class="cu-tag bg-red light sm round">正义天使</view>
-					<view class="cu-tag bg-green light sm round">史诗</view>
-				</view>
-			</view>
-		</view>
-	</view>
-  <view class="cu-item shadow">
-		<view class="title"><view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view></view>
-		<view class="content">
-			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-			 mode="aspectFill"></image>
-			<view class="desc">
-				<view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！</view>
-				<view>
-					<view class="cu-tag bg-red light sm round">正义天使</view>
-					<view class="cu-tag bg-green light sm round">史诗</view>
-				</view>
-			</view>
-		</view>
-	</view>
-  <view class="cu-item shadow">
-		<view class="title"><view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view></view>
-		<view class="content">
-			<image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg"
-			 mode="aspectFill"></image>
-			<view class="desc">
-				<view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！</view>
-				<view>
-					<view class="cu-tag bg-red light sm round">正义天使</view>
-					<view class="cu-tag bg-green light sm round">史诗</view>
-				</view>
-			</view>
-		</view>
-	</view>
+<mp-toptips msg="{{success}}" type="success" show="{{success}}"></mp-toptips>
+
+<view class="box">
+  <view class="cu-bar bg-white">
+    <view class="action sub-title">
+      <text class="text-xl text-bold text-green">运动计划</text>
+      <text class="bg-green"></text>
+    </view>
+  </view>
 </view>
+<!-- 运动计划表单 -->
+<form wx:if="{{modalShow}}">
+  <view class="cu-card article">
+    <view class="cu-item shadow">
+      <view class="cu-form-group margin-top cu-card">
+        <textarea maxlength="-1" bindinput="textareaInput" placeholder="多行文本输入框"></textarea>
+      </view>
+    </view>
+  </view>
+  <button class="cu-btn block line-orange lg" style="width: 90%;" bind:tap="formSubmit">
+    <text class="cuIcon-upload">上传运动计划</text>
+  </button>
+</form>
 
-<button class="cu-btn round bg-green margin-tb-sm lg" style="width: 60%;margin-left: 20%;" bind:tap="open">快来上传您自己的计划吧</button>
-
-<mp-half-screen-dialog bindbuttontap="buttontap" show="{{show}}" maskClosable="{{false}}" title="测试标题B" subTitle="测试标题B的副标题" desc="辅助描述内容，可根据实际需要安排" tips="辅助提示内容，可根据实际需要安排" buttons="{{buttons}}"></mp-half-screen-dialog>
-
-<mp-tabbar ext-class="foot-tabbar" list="{{tabBarList}}" bindchange="tabChange" current="1"></mp-tabbar>
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">KeepKit · 音乐减压跑 · 专注沉浸</view>
+    </view>
+    <view class="content">
+      <image src="/asset/keepOne.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">课程时长17分钟，距离约2-3公里。轻松、愉悦、充满节奏动感。这不仅是一首精心为跑者打造的动感节奏音乐，还是一次让你沉浸其中，学会正确跑步的语音指导课。全新音乐减压跑课程，让音乐加指导陪伴你畅快奔跑15分钟。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">18Min</view>
+          <view class="cu-tag bg-green light sm round">K1</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">KeepKit · 音乐减压跑 · 宁静独处</view>
+    </view>
+    <view class="content">
+      <image src="/asset/keepSecond.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">快来轻松畅快奔跑吧，时长 25 分钟，距离约 3-4 公里。轻松、愉悦、充满节奏动感。这不仅是一首精心为跑者打造的动感节奏音乐，还是一次让你沉浸其中，学会正确跑步的语音指导课。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">26Min</view>
+          <view class="cu-tag bg-green light sm round">K2</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">KeepKit · 音乐燃脂跑· 绿野仙踪</view>
+    </view>
+    <view class="content">
+      <image src="/asset/keepThird.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content">时长 23 分钟，距离约 3-4 公里。森林、童话、梦境环游。这不止是一首背景音乐，而是一次沉浸式跑步音乐课。 全新音乐分段跑课程，让原声音乐陪伴你畅快奔跑 20 分钟。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">23Min</view>
+          <view class="cu-tag bg-green light sm round">K2</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

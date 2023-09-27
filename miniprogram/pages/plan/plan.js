@@ -7,36 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabBarList: app.globalData.tabBarList,
-    show: false,
-    buttons: [{
-        type: 'default',
-        className: '',
-        text: '辅助操作',
-        value: 0
-      },
-      {
-        type: 'primary',
-        className: '',
-        text: '主操作',
-        value: 1
-      }
-    ]
-  },
-  tabChange(e) {
-    app.tabChange(e);
-  },
-  open: function () {
-    this.setData({
-      show: true
-    })
-  },
-  buttontap(e) {
-    console.log(e.detail)
+    modalShow: true,
+    success: ''
   },
   /**
    * 生命周期函数--监听页面加载
    */
+
+   textareaInput(e){
+     this.setData({
+       textareaValue: e.detail.value
+     })
+   },
+
+   formSubmit(e){
+    console.log(this.data.textareaValue)
+    return this.setData({
+      modalShow: false,
+      success:'上传成功'
+    })
+   },
+
   onLoad(options) {
 
   },

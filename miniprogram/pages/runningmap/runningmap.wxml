@@ -13,15 +13,29 @@
         >
     </map>
 </view>
-
-
-<!-- <view class="head" style="flex-direction:row;">
-
-    <button bindtap="openLocation">位置</button>
-    <button bindtap="starRun">开始</button>
-    <button bindtap="stopRun">暂停</button>
-    <button bindtap="stop">结束</button>
-    <text>里程数: {{meters}}km</text>
-    <text>\n时间：{{time}}</text>
-    <text>\n千卡：{{dataObj}}k</text>
-</view> -->
+<view class="panel">
+    <wux-floating-panel
+      id="wux-floating-panel"
+      defaultAnchors="{{ defaultAnchors }}"
+      bind:heightChange="onHeightChange"
+    >
+      <view
+        style="box-sizing: border-box;padding: 20rpx;height: {{ height }}; background-image: {{ backgroundImage }};"
+      >
+      <view class="locationbtn" bindtap="openLocation">
+		    <image src="../../asset/local.svg"></image>
+      </view>
+      <view class="head" style="flex-direction:row;">
+        <text>里程数: {{meters}}km</text>
+        <text>\n时间：{{time}}</text>
+        <text>\n千卡：{{dataObj}}k</text>
+      </view>
+        <button style="width:120rpx;height: 120rpx;border-radius:100%;box-shadow: 4rpx 1rpx 1rpx #cccccc;display: flex;align-items: center;justify-content: space-evenly;flex-direction: row;" type="{{isRunning?'warn':'primary'}}" catch:tap="{{isRunning?'stopRun':'starRun'}}" bind:longpress="stop" bind:touchstart="touchStart" bind:touchend="touchEnd">
+        <view>
+          <view wx:if="{{!isRunning}}">Start</view>
+          <view wx:else="{{!isRunning}}">Stop</view>
+        </view>
+        </button>
+      </view>
+    </wux-floating-panel>
+  </view>

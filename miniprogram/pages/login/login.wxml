@@ -1,14 +1,13 @@
 <!--pages/login/login.wxml-->
+
 <button class="avatar-wrapper" style="padding: 0%;margin-top: 100rpx;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
   <image class="avatar" mode="widthFix" src="{{avatarUrl}}"></image>
 </button>
 <form bindsubmit="submitForm">
-<mp-cells>
-  <mp-cell title="昵称">
-    <input name="input" type="nickname" class="weui-input" placeholder="请输入昵称" />
-  </mp-cell>
-  <mp-cell>
-  <button form-type="submit">提交</button>
-  </mp-cell>
-</mp-cells>
+  <label>
+    <input name="input" type="nickname" placeholder="请输入昵称" />
+  </label>
+  <label>
+    <button form-type="submit">提交</button>
+  </label>
 </form>

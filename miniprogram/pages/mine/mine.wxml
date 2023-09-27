@@ -3,7 +3,6 @@
   <mp-cell id="user" bind:tap="login" footer="{{avatarName}}">
       <image class="userImage" id="userImage" src="{{avatarUrl}}"></image>
   </mp-cell>
-  <mp-cell footer="100.00元">我的钱包</mp-cell>
   <mp-cell footer="100条">我的计划</mp-cell>
   <mp-cell footer="100条">我的记录</mp-cell>
   <mp-cell>意见反馈</mp-cell>

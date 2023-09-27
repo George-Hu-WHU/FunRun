@@ -1,4 +1,19 @@
-/* pages/weather/weather.wxss */
+
+/* 页面容器样式 */
+.page-container {
+  background-color: rgb(97, 94, 94); /* 页面背景色 */
+}
+
+/* 头部样式 */
+.header {
+  text-align: center;
+  background-color: #007bff; /* 头部背景色 */
+  color: #fff; /* 头部文字颜色 */
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px; /* 与内容之间的间距 */
+}
+
 ec-canvas {
   width: 100%;
   height: 100%;
@@ -6,25 +21,27 @@ ec-canvas {
    
   .container {
     position: absolute;
-    top: 0;
+    top:0;
     bottom: 0;
     left: 0;
     right: 0;
     display: flex;
-    flex-direction: column; 
-    align-items: center;
+    flex-direction: column;
+
     justify-content: space-between;
     box-sizing: border-box;
+    margin: 0 auto;
+    margin-top: 60px;      /* 添加顶部间距，使折线图与页面顶端不相连 */
+    margin-bottom: 20px;    /* 添加底部间距，使折线图与表格不相连 */
+    background-color: white;
   }
 
+.table-container{
 
-   
-  .picker-pos {
-  margin-top: -130rpx;
-  margin-left: 150rpx;
-  color: blueviolet;
-  }
 
+
+  background-color: white;
+}
 
 
 
@@ -34,12 +51,15 @@ ec-canvas {
   display: flex;
   flex-direction: column;     /* 排列形式: 向下 */
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+
 }
 
 .tr {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  
 }
 
 .th, .td {  /* 公有的属性 */
@@ -54,17 +74,22 @@ ec-canvas {
   border-bottom: 1px solid #dadada;   /* 单元格下线框 */
   border-left: 1px solid #dadada;     /* 单元格左线框 */
   border-right: 1px solid #dadada;    /* 单元格右线框 */
+  
 }
 
 .th {
   font-weight: 800;           /* 字体加重 */
-  background-color:#B3CCF4;   /* 背景色 */
+  background-color:#B3CCF4; /* 背景色 */
+   
 }
 
-.td {
-  background-color:#edf3e9;   /* 背景色 */
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff; /* 页脚背景色 */
+  color: #fff; /* 页脚文字颜色 */
+  border-radius: 5px;
 }
 
    
-   
-  

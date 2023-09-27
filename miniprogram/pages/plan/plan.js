@@ -1,6 +1,5 @@
 // pages/plan.js
 var app = getApp()
-const { envList } = require('../../envList.js');
 
 Page({
 
@@ -8,19 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    gender:"",
-    age:"",
-    kg:"",
-    cm:"",
-    healthy_condition:"",
-    rate:"",
-    object:"",
-    experience:""
+    modalShow: true,
+    success: ''
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
+
+   textareaInput(e){
+     this.setData({
+       textareaValue: e.detail.value
+     })
+   },
+
+   formSubmit(e){
+    console.log(this.data.textareaValue)
+    return this.setData({
+      modalShow: false,
+      success:'上传成功'
+    })
+   },
+
   onLoad(options) {
 
   },

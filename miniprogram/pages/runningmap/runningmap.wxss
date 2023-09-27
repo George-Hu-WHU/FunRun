@@ -6,3 +6,18 @@
   height: 100vh;
   width: 100%;
 }
+.locationbtn{
+  position: absolute;
+	background: #C4F2E7;
+	width: 96rpx;
+	height: 96rpx;
+	right: 30rpx;
+	top: 36rpx;
+	border-radius: 50%;
+	display: flex;
+}
+.locationbtn image{
+	width: 50%;
+	height: 50%;
+	margin: auto;
+}

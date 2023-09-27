@@ -1,6 +1,6 @@
 .wux-floating-panel {
   position: fixed;
-  z-index: 1020;
+  z-index: 1;
   bottom: 0;
   left: 0;
   width: 100vw;
@@ -19,13 +19,13 @@
 }
 .wux-floating-panel__hd {
   flex: none;
-  height: 50rpx;
+  height: 70rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: grab;
   user-select: none;
-  background-color: rgb(196,242,231);
+  background-color: rgb(224,255,251);
   border-top-left-radius: 50rpx;
   border-top-right-radius: 50rpx;
 }
@@ -38,7 +38,7 @@
 .wux-floating-panel__bd {
   flex: 1 1;
   overflow-y: scroll;
-  background: rgb(196,242,231);
+  background: rgb(224,255,251);
 }
 .wux-floating-panel__mask {
   display: block;

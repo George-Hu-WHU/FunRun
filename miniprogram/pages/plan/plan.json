@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-tabbar": "weui-miniprogram/tabbar/tabbar",
+    "mp-cells": "weui-miniprogram/cells/cells",
+    "mp-cell": "weui-miniprogram/cell/cell",
+    "mp-half-screen-dialog": "weui-miniprogram/half-screen-dialog/half-screen-dialog"
+  }
 }

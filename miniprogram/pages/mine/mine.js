@@ -24,11 +24,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const that = this
     wx.cloud.callFunction({
       name: 'login',
       complete: res => {
         users.where({
           _openid: res.result.openid
+        }).get().then(res => {
+          if (res.data.length == 0) {
+            return
+          }
+          that.setData({
+            avatarUrl: res.data[0].fileID,
+            avatarName: res.data[0].avatarName
+          })
         })
       }
     })

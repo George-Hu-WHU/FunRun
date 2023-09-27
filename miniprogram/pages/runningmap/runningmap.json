@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "wux-floating-panel": "../../components/floating-panel/index",
-    "wux-circle": "../../components/circle/index"
+    "wux-floating-panel": "../../components/floating-panel/index"
   }
 }

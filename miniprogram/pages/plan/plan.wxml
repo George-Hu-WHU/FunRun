@@ -15,7 +15,7 @@
   <view class="cu-card article">
     <view class="cu-item shadow">
       <view class="cu-form-group margin-top cu-card">
-        <textarea maxlength="-1" bindinput="textareaInput" placeholder="多行文本输入框"></textarea>
+        <textarea maxlength="-1" bindinput="textareaInput" placeholder="清风徐来，水波不兴。驾一叶之扁舟，举匏樽以相属。寄蜉蝣于天地，渺沧海之一粟。"></textarea>
       </view>
     </view>
   </view>

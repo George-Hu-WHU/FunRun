@@ -1,41 +1,27 @@
-
 <view class="mainView">
-   <map
-        scale="18" 
-        polyline="{{polyline}}"
-        map id="map"
-        class="mapView"
-        show-location style="width: 100%;"
-        latitude="{{latitude}}"
-        longitude="{{longitude}}"
-        markers="{{markers}}"
-        covers="{{covers}}"
-        >
-    </map>
+  <map scale="18" polyline="{{polyline}}" map id="map" class="mapView" show-location style="width: 100%;" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}">
+  </map>
 </view>
 <view class="panel">
-    <wux-floating-panel
-      id="wux-floating-panel"
-      defaultAnchors="{{ defaultAnchors }}"
-      bind:heightChange="onHeightChange"
-    >
-      <view
-        style="box-sizing: border-box;padding: 20rpx;height: {{ height }}; background-image: {{ backgroundImage }};"
-      >
+  <wux-floating-panel id="wux-floating-panel" defaultAnchors="{{ defaultAnchors }}" bind:heightChange="onHeightChange">
+    <view style="padding: 20rpx;height: {{ height }}; background-image: {{ backgroundImage }};">
       <view class="locationbtn" bindtap="openLocation">
-		    <image src="../../asset/local.svg"></image>
+        <image src="../../asset/local.svg"></image>
       </view>
-      <view class="head" style="flex-direction:row;">
-        <text>里程数: {{meters}}km</text>
-        <text>\n时间：{{time}}</text>
-        <text>\n千卡：{{dataObj}}k</text>
+      <view class="head">
+        <item class="rainbow-text">里程碑</item>
+        <item class="rainbow-text">时间</item>
+        <item class="rainbow-text">热量</item>
       </view>
-        <button style="width:120rpx;height: 120rpx;border-radius:100%;box-shadow: 4rpx 1rpx 1rpx #cccccc;display: flex;align-items: center;justify-content: space-evenly;flex-direction: row;" type="{{isRunning?'warn':'primary'}}" catch:tap="{{isRunning?'stopRun':'starRun'}}" bind:longpress="stop" bind:touchstart="touchStart" bind:touchend="touchEnd">
-        <view>
-          <view wx:if="{{!isRunning}}">Start</view>
-          <view wx:else="{{!isRunning}}">Stop</view>
-        </view>
-        </button>
+      <view style="margin-top: 20rpx;" class="head">
+        <item class="rainbow-text">{{meters}}km</item>
+        <item class="rainbow-text">{{time}}</item>
+        <item class="rainbow-text">{{dataObj}}k</item>
       </view>
-    </wux-floating-panel>
-  </view>
+      <button class="mainbtn" type="{{isRunning?'warn':'primary'}}" catch:tap="{{isRunning?'stopRun':'starRun'}}" bind:longpress="stop" bind:touchstart="touchStart" bind:touchend="touchEnd">
+        <view wx:if="{{!isRunning}}">Start</view>
+        <view wx:else="{{!isRunning}}">Stop</view>
+      </button>
+    </view>
+  </wux-floating-panel>
+</view>

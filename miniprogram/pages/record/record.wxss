@@ -7,42 +7,38 @@
 ec-canvas {
   width: 100%;
   height: 100%;
-  }
-   
-  .container {
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
+}
 
-    justify-content: space-between;
-    box-sizing: border-box;
-    margin: 0 auto;
-    margin-top: 60px;      /* 添加顶部间距，使折线图与页面顶端不相连 */
-    margin-bottom: 20px;    /* 添加底部间距，使折线图与表格不相连 */
-    background-color: white;
-  }
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
 
-.table-container{
-
-
-
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 60px;
+  /* 添加顶部间距，使折线图与页面顶端不相连 */
+  margin-bottom: 20px;
+  /* 添加底部间距，使折线图与表格不相连 */
   background-color: white;
 }
 
+.table-container {
+  background-color: white;
+}
 
-
-
-  /*表格*/
+/*表格*/
 .table {
   display: flex;
-  flex-direction: column;     /* 排列形式: 向下 */
+  flex-direction: column;
+  /* 排列形式: 向下 */
   margin-top: 50px;
   margin-bottom: 20px;
-
 }
 
 .tr {

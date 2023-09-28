@@ -1,0 +1,21 @@
+/* pages/mine/mine.wxss */
+
+.userImage {
+  width: 150rpx;
+  height: 150rpx;
+  margin-left: 0%;
+}
+
+mp-tabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+switch {
+  position: relative;
+  left: 449rpx;
+  top: 0rpx;
+}

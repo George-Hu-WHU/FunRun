@@ -1,0 +1,27 @@
+{
+  "pages": [    
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/questionaire/questionaire",
+    "pages/plan/plan",
+    "pages/runningmap/runningmap",
+    "pages/login/login",
+    "pages/record/record"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "FunRun乐跑",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

@@ -1,0 +1,5 @@
+<!-- components/waterfall-item/waterfall-item.wxml -->
+<navigator class="w-item" url="{{itemData.link}}" open-type="navigate">
+  <image src="{{itemData.imgUrl}}" style="height:{{itemData.imgHeight}}px" class="w-image"/>
+  <view class="w-text">{{itemData.text}}</view>
+</navigator>

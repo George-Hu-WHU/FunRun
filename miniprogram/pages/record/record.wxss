@@ -45,37 +45,50 @@ ec-canvas {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  
+
 }
 
-.th, .td {  /* 公有的属性 */
+.th, .td {
+  /* 公有的属性 */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;            /* 自动换行 */
-  width: 25%;					/* 4个25%相加刚好100% */
-  text-align: center;         /* 文本居中 */
-  justify-content:center;     /* 主轴居中 */
-  align-items: center;        /* 交叉轴居中 */
-  border-top: 1px solid #dadada;      /* 单元格上线框 */
-  border-bottom: 1px solid #dadada;   /* 单元格下线框 */
-  border-left: 1px solid #dadada;     /* 单元格左线框 */
-  border-right: 1px solid #dadada;    /* 单元格右线框 */
-  
+  flex-wrap: wrap;
+  /* 自动换行 */
+  width: 25%;
+  /* 4个25%相加刚好100% */
+  text-align: center;
+  /* 文本居中 */
+  justify-content: center;
+  /* 主轴居中 */
+  align-items: center;
+  /* 交叉轴居中 */
+  border-top: 1px solid #dadada;
+  /* 单元格上线框 */
+  border-bottom: 1px solid #dadada;
+  /* 单元格下线框 */
+  border-left: 1px solid #dadada;
+  /* 单元格左线框 */
+  border-right: 1px solid #dadada;
+  /* 单元格右线框 */
+}
+
+.td {
+  background-color: rgb(206, 216, 154);
 }
 
 .th {
-  font-weight: 800;           /* 字体加重 */
-  background-color:#B3CCF4; /* 背景色 */
-   
+  font-weight: 800;
+  /* 字体加重 */
+  background-color: rgb(177, 196, 078);
+  /* 背景色 */
 }
-
 
 .footer {
   text-align: center;
   padding: 10px;
-  background-color: #007bff; /* 页脚背景色 */
-  color: #fff; /* 页脚文字颜色 */
+  background-color: rgb(255, 255, 255);
+  /* 页脚背景色 */
+  color: rgb(212, 212, 212);
+  /* 页脚文字颜色 */
   border-radius: 5px;
 }
-
-   

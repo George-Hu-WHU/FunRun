@@ -137,6 +137,7 @@
   color: rgb(102, 102, 102);
   line-height: 1.5;
   padding: 20rpx 0;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 mp-tabbar{
   position: fixed;

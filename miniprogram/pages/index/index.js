@@ -200,9 +200,8 @@ Page({
         text: mockText,
         link: "",
         // imgUrl: `https://via.placeholder.com/${imgWidth}x${imgHeight}.jpeg/07c160/fff?text=${pid}(${imgWidth}x${imgHeight})`,
-        imgUrl: `https://picsum.photos/${imgWidth}/${imgHeight}`,
+        imgUrl: `https://picsum.photos/${imgWidth}/${imgHeight}?text=${pid}`,
         // imgUrl: `https://source.unsplash.com/random/${imgWidth}x${imgHeight}/daily?sports`
-        // imgUrl: `https://api.yimian.xyz/img?type=wallpaper&size=${imgWidth}x${imgHeight}`
         
       })
       this.data.pid = ++pid
@@ -219,12 +218,20 @@ Page({
   getMockText() {
     const a = parseInt(Math.random() * 5 + 1) * 10
     const b = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 "
+    const tips = [
+      "晨间轻松跑 · 神清气爽",
+      "晨间轻松跑 · 活力满满",
+      "减压燃脂跑 · 享受挑战",
+      "梦想运动场",
+    ]
     let c = "";
-    for (let i = 0; a > i; i++) {
-      let d = Math.random() * b.length
-      d = Math.floor(d)
-      c += b.charAt(d);
-    }
+    c = parseInt(Math.random()*tips.length)
+    c = tips[c]
+    // for (let i = 0; a > i; i++) {
+    //   let d = Math.random() * b.length
+    //   d = Math.floor(d)
+    //   c += b.charAt(d);
+    // }
     return c
   }
 })

@@ -1,0 +1,126 @@
+.mainView {
+  height: 100vh;
+  width: 100%;
+}
+
+.mapView {
+  height: 100vh;
+  width: 100%;
+}
+
+.locationbtn {
+  position: absolute;
+  background: #e0fffb;
+  width: 96rpx;
+  height: 96rpx;
+  right: 80rpx;
+  top: 180rpx;
+  border-radius: 50%;
+  display: flex;
+  margin-top: 60rpx;
+}
+
+.locationbtn image {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.head {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+.mainbtn {
+  position: relative;
+  width: 100rpx !important;
+  height: 100rpx;
+  border-radius: 50%;
+  box-shadow: 4rpx 1rpx 1rpx #cccccc;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 60rpx;
+  display: flex;
+  padding: 0;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+item {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+  font-size: 1.5em;
+  line-height: 0.9em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.rainbow-text {
+  background: #CA4246;
+  background-color: #CA4246;
+  background: conic-gradient(#CA4246 16.666%,
+      #E16541 16.666%,
+      #E16541 33.333%,
+      #F18F43 33.333%,
+      #F18F43 50%,
+      #8B9862 50%,
+      #8B9862 66.666%,
+      #476098 66.666%,
+      #476098 83.333%,
+      #A7489B 83.333%);
+  background-size: 57%;
+  background-repeat: repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-text-animation-rev 0.5s ease forwards;
+  cursor: pointer;
+}
+
+.rainbow-text:hover {
+  animation: rainbow-text-animation 0.5s ease forwards;
+}
+
+@keyframes rainbow-text-animation {
+  0% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+
+  100% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+}
+
+@keyframes rainbow-text-animation-rev {
+  0% {
+    background-size: 300%;
+    background-position: -9em 1em;
+  }
+
+  20% {
+    background-size: 57%;
+    background-position: 0 1em;
+  }
+
+  100% {
+    background-size: 57%;
+    background-position: 0 0;
+  }
+}
+

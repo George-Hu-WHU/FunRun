@@ -1,0 +1,63 @@
+<mp-form-page title="运动信息" 
+subtitle="这里是问卷调查，我们需要了解您的部分信息，以便为你规划适合的跑步方案">
+
+  <mp-form>
+
+    <mp-cells>
+      <mp-cell title="您的年龄">
+        <mp-checkbox-group multi="{{false}}" id="age" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{ages}}" wx:key="index" label="{{item.val}}" value="{{item.val}}" checked="{{item.checked}}">
+          </mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您的性别">
+        <mp-checkbox-group multi="{{false}}" id="gender" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{genders}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您目前的体重大概多少">
+        <mp-checkbox-group multi="{{false}}" id="kg" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{weight}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您目前身高大概多少">
+        <mp-checkbox-group multi="{{false}}" id="cm" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{hight}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您的健康状况如何">
+        <mp-checkbox-group multi="{{false}}" id="healthy_condition" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{healthy_conditions}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您想计划的每周跑步运动的次数是多少">
+        <mp-checkbox-group multi="{{false}}" id="rate" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{runrate}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您的主要跑步目标是">
+        <mp-checkbox-group multi="{{false}}" id="object" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{objects}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell title="您的跑步经验如何">
+        <mp-checkbox-group multi="{{false}}" id="experience" bind:change="ratioChange">
+          <mp-checkbox wx:for="{{experiences}}" wx:key="index" label="{{item.val}}" value="{{item.val}}"></mp-checkbox>
+        </mp-checkbox-group>
+      </mp-cell>
+
+      <mp-cell>
+        <button type="primary" class="button" bind:tap="formsubmit" size="mini">点击提交</button>
+        <button type="primary" class="button" bind:tap="formreset" size="mini">点击重置</button>
+      </mp-cell>
+
+    </mp-cells>
+  </mp-form>
+</mp-form-page>

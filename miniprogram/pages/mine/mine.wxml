@@ -1,0 +1,21 @@
+<!--pages/mine/mine.wxml-->
+<mp-cells>
+  <mp-cell id="user" bind:tap="login" footer="{{avatarName}}">
+      <image class="userImage" id="userImage" src="{{avatarUrl}}"></image>
+  </mp-cell>
+  <mp-cell footer="100条">我的计划</mp-cell>
+  <mp-cell footer="100条">我的记录</mp-cell>
+  <mp-cell>意见反馈</mp-cell>
+  <mp-cell>我的设置</mp-cell>
+</mp-cells>
+<mp-cells>
+  <mp-cell footer=">">我的关注<mp-badge content="100"></mp-badge>
+  </mp-cell>
+  <mp-cell footer=">">我的消息<mp-badge content="99"></mp-badge>
+  </mp-cell>
+  <mp-cell>系统通知<mp-badge></mp-badge>
+  </mp-cell>
+  <mp-cell>内容推送<switch checked="true"></switch>
+  </mp-cell>
+</mp-cells>
+<mp-tabbar ext-class="foot-tabbar" list="{{tabBarList}}" bindchange="tabChange" current="3"></mp-tabbar>

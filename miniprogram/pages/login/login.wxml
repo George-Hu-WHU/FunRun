@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+
+<button class="avatar-wrapper" style="padding: 0%;margin-top: 100rpx;" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+  <image class="avatar" mode="widthFix" src="{{avatarUrl}}"></image>
+</button>
+<form bindsubmit="submitForm">
+  <label>
+    <input name="input" type="nickname" placeholder="请输入昵称" />
+  </label>
+  <label>
+    <button form-type="submit">提交</button>
+  </label>
+</form>

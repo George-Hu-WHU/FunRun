@@ -1,0 +1,34 @@
+<view class="page-container">
+
+
+<view class="header">
+    <view class="title">个人数据</view>
+  </view>
+
+<view class="container" style=" height: 70%;">
+  <ec-canvas id="line-chart" canvas-id="lineCanvas" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
+<view class="table-container">
+<view style="margin-top: 500px;font-size: large; font-weight: 1000;">|成绩预测</view>
+<view class="table">
+  <view class="tr">
+    <view class="th">距离（千米）</view>
+    <view class="th">时间（分钟）</view>
+    <view class="th">平均配速（分钟/千米）</view>
+  </view>
+  <view wx:for="{{ paceData }}" wx:for-item="item" wx:key="index" class="tr">
+    <view class="td">{{ item.distance }}</view>
+    <view class="td">{{ item.time }}</view>
+    <view class="td">{{ item.pace }}</view>
+  </view>
+</view>
+</view>
+
+<view class="footer">
+    <view class="footer-text">FunRun乐跑</view>
+  </view>
+
+
+</view>

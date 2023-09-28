@@ -1,17 +1,7 @@
-
 /* 页面容器样式 */
 .page-container {
-  background-color: rgb(97, 94, 94); /* 页面背景色 */
-}
-
-/* 头部样式 */
-.header {
-  text-align: center;
-  background-color: #007bff; /* 头部背景色 */
-  color: #fff; /* 头部文字颜色 */
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px; /* 与内容之间的间距 */
+  background-color: rgb(255, 255, 255);
+  /* 页面背景色 */
 }
 
 ec-canvas {

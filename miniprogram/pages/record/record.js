@@ -16,7 +16,7 @@ function initChart(canvas, width, height) {
     // 在这里使用 ECharts 设置折线图的配置项
     const option = {
       title: {
-        text: '|历史数据',
+        text: '|跑步周期',
         left: 'left'
       },
       

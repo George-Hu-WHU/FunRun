@@ -14,14 +14,10 @@
 <form wx:if="{{modalShow}}">
   <view class="cu-card article">
     <view class="cu-item shadow">
-      <view class="cu-form-group margin-top cu-card">
-        <textarea maxlength="-1" bindinput="textareaInput" placeholder="清风徐来，水波不兴。驾一叶之扁舟，举匏樽以相属。寄蜉蝣于天地，渺沧海之一粟。"></textarea>
-      </view>
+      <text>{{text}}</text>
     </view>
   </view>
-  <button class="cu-btn block line-orange lg" style="width: 90%;" bind:tap="formSubmit">
-    <text class="cuIcon-upload">上传运动计划</text>
-  </button>
+
 </form>
 
 <view class="cu-card article">

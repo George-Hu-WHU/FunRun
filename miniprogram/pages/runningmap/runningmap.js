@@ -3,10 +3,11 @@ const app = getApp()
 var countTooGetLocation = 0;
 var total_micro_second = 0;
 var starRun = 0;
-var totalSecond = 0;
+//stoprun
+var totalSecond  = 0;
 var oriMeters = 0.0;
-
-var dbweightData = ""; //数据库中string类型的体重范围
+var data=0;
+var dbweightData = "";//数据库中string类型的体重范围
 var weightData = 0; // 提取的weight数据  
 
 const windowHeight = wx.getSystemInfoSync().windowHeight
@@ -273,14 +274,19 @@ Page({
             timer: 0,
             isRunning: 0,
             isLongpress: 0
-          })
+            })
           that.updateTime(0)
-        } else {}
+        }else{
+        }
       }
     })
+    clearInterval(this.timer);
+    this.setData({
+      isRunning:0
+    })
   },
-  //****************************
-  updateTime: function (time) {
+//****************************
+  updateTime:function (time) {
 
     var data = this.data;
     data.time = time;
@@ -341,9 +347,11 @@ Page({
 
         var meters = new Number(oriMeters);
         // var dataObj=meter*this.data.weight*1.036;
-
+        data= weightData+60*oriMeters*1.036;//卡路里的计算
+        var date = new Number(data);
         var showMeters = meters.toFixed(2);
-        var showkase = meters.toFixed(2);
+        var showc = date.toFixed(2);
+        var showkase=meters.toFixed(2);
         oriCovers.push(newCover);
 
         that.setData({
@@ -351,9 +359,9 @@ Page({
           longitude: res.longitude,
           markers: [],
           covers: oriCovers,
-          meters: showMeters,
-
-
+          meters:showMeters,
+          dataObj:showc,
+          
         });
       },
     })

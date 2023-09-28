@@ -199,9 +199,11 @@ Page({
         pid,
         text: mockText,
         link: "",
-        imgUrl: `https://via.placeholder.com/${imgWidth}x${imgHeight}.jpeg/07c160/fff?text=${pid}(${imgWidth}x${imgHeight})`,
-        // imgUrl: `https://iph.href.lu/${imgWidth}x${imgHeight}?fg=ffffff&bg=07c160&text=我是图片${id}(${imgWidth}x${imgHeight})`,
-        // imgUrl: `http://placekitten.com/${imgWidth}/${imgHeight}`,
+        // imgUrl: `https://via.placeholder.com/${imgWidth}x${imgHeight}.jpeg/07c160/fff?text=${pid}(${imgWidth}x${imgHeight})`,
+        imgUrl: `https://picsum.photos/${imgWidth}/${imgHeight}`,
+        // imgUrl: `https://source.unsplash.com/random/${imgWidth}x${imgHeight}/daily?sports`
+        // imgUrl: `https://api.yimian.xyz/img?type=wallpaper&size=${imgWidth}x${imgHeight}`
+        
       })
       this.data.pid = ++pid
     }
@@ -209,6 +211,7 @@ Page({
     if (pid > 30) {
       this.setData({ loaded: true })
     }
+    console.log(shareList)
     return shareList
   },
 

@@ -3,9 +3,10 @@ const app = getApp()
 var countTooGetLocation = 0;
 var total_micro_second = 0;
 var starRun = 0;
+//stoprun
 var totalSecond  = 0;
 var oriMeters = 0.0;
-
+var data=0;
 var dbweightData = "";//数据库中string类型的体重范围
 var weightData = 0; // 提取的weight数据  
 
@@ -18,13 +19,12 @@ function drawline() {
   that2.setData({
      polyline : [{
         points : point,
-        colorList : "#297245",
+         color : '#FF0066',
          width : 4,
          dottedLine : false
      }]
   });
 }
-
 //new
 function getalocation() {
   var lat, lng;
@@ -162,38 +162,7 @@ Page({
     count_down(this);
   },
 
-  onshow:function(res){
-    const db = wx.cloud.database()
-  db.collection('questionaire_data').where({
-    _openid: app.globalData.openid
-  }).get({
-    success: function(res) {
-      dbweightData = res.data[0].kg;
-      console.log('获取成功');
-    },
-    fail: function() {
-      wx.showToast({
-        icon: 'none',
-        title: '请先完成调查问卷'
-        })
-    }
-  })
-
-  if(dbweightData == "40kg以下"){
-    weightData = 30;
-  }
-  else if(dbweightData == "40~60kg"){
-    weightData = 50;
-  }
-  else if(dbweightData == "60~80kg"){
-    weightData = 70;
-  }
-  else{
-    weightData = 90;
-  }
-  },
-
-
+ 
   //****************************
   openLocation:function (){
     wx.getLocation({
@@ -225,6 +194,8 @@ Page({
         getalocation();
         drawline();
     }
+
+    //修改
     this.setData({
       isRunning:1
     })
@@ -256,6 +227,7 @@ Page({
       success:function(res){
         if(res.confirm){
           starRun = 0;
+          data = 0//热量控件
           total_micro_second = 0//时间控件
           oriMeters = 0.0//距离控件
           point = [];//轨迹控件
@@ -264,6 +236,7 @@ Page({
             polyline: [],
             meters:" 0.00",
             time: "0:00:00",
+            dataObj:"0.00",
             markers: [],
             covers: [],
             isLocation:false,
@@ -277,6 +250,10 @@ Page({
         }else{
         }
       }
+    })
+    clearInterval(this.timer);
+    this.setData({
+      isRunning:0
     })
   },
 //****************************
@@ -341,8 +318,10 @@ Page({
 
         var meters = new Number(oriMeters);
         // var dataObj=meter*this.data.weight*1.036;
-
+        data= weightData+60*oriMeters*1.036;//卡路里的计算
+        var date = new Number(data);
         var showMeters = meters.toFixed(2);
+        var showc = date.toFixed(2);
         var showkase=meters.toFixed(2);
         oriCovers.push(newCover);
 
@@ -352,7 +331,7 @@ Page({
           markers: [],
           covers: oriCovers,
           meters:showMeters,
-
+          dataObj:showc,
           
         });
       },

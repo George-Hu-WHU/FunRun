@@ -41,7 +41,7 @@
     "minifyWXSS": true,
     "showES6CompileOption": false,
     "useSummerCompiler": false,
-    "ignoreUploadUnusedFiles": true
+    "ignoreUploadUnusedFiles": false
   },
   "compileType": "miniprogram",
   "libVersion": "2.19.1",
